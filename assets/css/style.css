@@ -1,0 +1,12 @@
+body{
+    background-image: url("../images/Psychic Image.jpg");
+    width: 300px;
+    border: 25px solid lavenderblush;
+    padding: 25px;
+    margin: 25px;
+
+}
+#game{
+    background-color: rgba(236, 236, 125, 0.2);
+    color: yellow;
+}
