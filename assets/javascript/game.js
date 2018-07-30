@@ -1,16 +1,16 @@
- // Creates an array that lists out all of the options.
- var computerChoice = ["A", "B", "C", "D", "E", "F", "G", "H", "I", "J", "K", "L", "M", "N", "O", "P", "Q", "R", "S", "T", "U", "V", "W", "X", "Y", "Z"];
- var computerGuess = computerChoice[Math.floor(Math.random() * computerChoice.length)];//computer guess outside. Otherwise it will reset the computer guess each time the user selects.
- var guessesSoFar = [];// Array to push user choices to.
- var wins = 0;
- var losses = 0;
- var guessesLeft = 9;
+// Creates an array that lists out all of the options.
+var computerChoice = ["A", "B", "C", "D", "E", "F", "G", "H", "I", "J", "K", "L", "M", "N", "O", "P", "Q", "R", "S", "T", "U", "V", "W", "X", "Y", "Z"];
+var computerGuess = computerChoice[Math.floor(Math.random() * computerChoice.length)];//computer guess outside. Otherwise it will reset the computer guess each time the user selects.
+var guessesSoFar = [];// Array to push user choices to.
+var wins = 0;
+var losses = 0;
+var guessesLeft = 9;
 
- // This function is run whenever the user presses a key.
- document.onkeyup = function(event) {
+// This function is run whenever the user presses a key.
+document.onkeyup = function (event) {
 
     var userGuess = event.key.toUpperCase();//taking in user guess and converting to uppercase.
- 
+
     guessesSoFar.push(userGuess);//Pushing userguess to guessesSoFar.
 
     // This logic determines if the user chose correctly and increments the appropriate number for wins.
@@ -27,15 +27,15 @@
         guessesLeft = 9;
         guessesSoFar.length = 0;
     }
-    else if (userGuess !== computerGuess){
+    else if (userGuess !== computerGuess) {
         guessesLeft--; //decrementing the guesses left
-    }         
+    }
     // Taking and displaying the tallies in HTML.
     var html = "<h1>The Psycho Game</h1>" +
-    "<p>Total Wins: " + wins + "</p>" +
-    "<p>Losses: " + losses + "</p>" +
-    "<p>Guesses left: " + guessesLeft + "</p>" +
-    "<p>Your guesses so far: " + guessesSoFar + "</p>";
+        "<p>Total Wins: " + wins + "</p>" +
+        "<p>Losses: " + losses + "</p>" +
+        "<p>Guesses left: " + guessesLeft + "</p>" +
+        "<p>Your guesses so far: " + guessesSoFar + "</p>";
 
     // Set the inner HTML contents of the #game div to our html string
     document.querySelector("#game").innerHTML = html;
