@@ -11,7 +11,7 @@ document.onkeyup = function (event) {
 
     var userGuess = event.key.toUpperCase();//taking in user guess and converting to uppercase.
 
-    guessesSoFar.push(userGuess);//Pushing userguess to guessesSoFar.
+    //Pushing userguess to guessesSoFar.
 
     // This logic determines if the user chose correctly and increments the appropriate number for wins.
     if (userGuess === computerGuess) {
@@ -19,17 +19,27 @@ document.onkeyup = function (event) {
         alert('Congratulations!  You Won!');
         guessesLeft = 9;//Reseting back to 9 to play again.
         guessesSoFar = [];//Removes guesses from the guessesSoFar Array for the new game.
+        computerGuess = computerChoice[Math.floor(Math.random() * computerChoice.length)];
     }
     // This logic determines if the user guesses incorrectly and increments the appropriate number for losses.
     else if (guessesLeft === 0) {
+      
         losses++;
-        alert('Incorrect guess!  You have LOST. Try again');
+        alert(`Incorrect guess!  You have LOST. The correct letter was: ${computerGuess}  Try again`);
         guessesLeft = 9;
         guessesSoFar.length = 0;
+        computerGuess = computerChoice[Math.floor(Math.random() * computerChoice.length)];
+    }  else if(guessesSoFar.includes(userGuess)){
+        alert(`You already guessed ${userGuess}, try guessing another letter!`);
+    }else{
+        guessesLeft--; 
+        guessesSoFar.push(userGuess);//
     }
-    else if (userGuess !== computerGuess) {
-        guessesLeft--; //decrementing the guesses left
-    }
+
+
+    // else if (userGuess !== computerGuess) {
+    //     decrementing the guesses left
+    // }
     // Taking and displaying the tallies in HTML.
     var html = "<h1>The Psycho Game</h1>" +
         "<p>Total Wins: " + wins + "</p>" +
