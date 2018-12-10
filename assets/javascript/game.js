@@ -43,7 +43,6 @@ document.onkeyup = function (event) {
         "<p>Losses: " + losses + "</p>" +
         "<p>Guesses left: " + guessesLeft + "</p>" +
         "<p>Your guesses so far: " + guessesSoFar + "</p>";
-
     // Set the inner HTML contents of the #game div to our html string
     document.querySelector("#game").innerHTML = html;
 }
