@@ -23,20 +23,17 @@ document.onkeyup = function (event) {
     }
     // This logic determines if the user guesses incorrectly and increments the appropriate number for losses.
     else if (guessesLeft === 0) {
-      
         losses++;
         alert(`Incorrect guess!  You have LOST. The correct letter was: ${computerGuess}  Try again`);
         guessesLeft = 9;
         guessesSoFar.length = 0;
         computerGuess = computerChoice[Math.floor(Math.random() * computerChoice.length)];
-    }  else if(guessesSoFar.includes(userGuess)){
+    } else if (guessesSoFar.includes(userGuess)) {
         alert(`You already guessed ${userGuess}, try guessing another letter!`);
-    }else{
-        guessesLeft--; 
+    } else {
+        guessesLeft--;
         guessesSoFar.push(userGuess);//
     }
-
-
     // else if (userGuess !== computerGuess) {
     //     decrementing the guesses left
     // }
@@ -49,5 +46,4 @@ document.onkeyup = function (event) {
 
     // Set the inner HTML contents of the #game div to our html string
     document.querySelector("#game").innerHTML = html;
-
 }
